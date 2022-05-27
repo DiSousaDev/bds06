@@ -1,8 +1,8 @@
-package com.devsuperior.movieflix.entities.dto;
+package com.devsuperior.movieflix.dto;
 
 import com.devsuperior.movieflix.entities.Movie;
 
-public class MovieDto {
+public class MovieDTO {
 
     private Long id;
     private String title;
@@ -10,12 +10,12 @@ public class MovieDto {
     private Integer year;
     private String imgUrl;
     private String synopsis;
-    private GenreDto genre;
+    private GenreDTO genre;
 
-    public MovieDto() {
+    public MovieDTO() {
     }
 
-    public MovieDto(Long id, String title, String subTitle, Integer year, String imgUrl, String synopsis, GenreDto genre) {
+    public MovieDTO(Long id, String title, String subTitle, Integer year, String imgUrl, String synopsis, GenreDTO genre) {
         this.id = id;
         this.title = title;
         this.subTitle = subTitle;
@@ -25,14 +25,14 @@ public class MovieDto {
         this.genre = genre;
     }
 
-    public MovieDto(Movie entity) {
+    public MovieDTO(Movie entity) {
         id = entity.getId();
         title = entity.getTitle();
         subTitle = entity.getSubTitle();
         year = entity.getYear();
         imgUrl = entity.getImgUrl();
         synopsis = entity.getSynopsis();
-        genre = new GenreDto(entity.getGenre());
+        genre = new GenreDTO(entity.getGenre());
     }
 
 
@@ -60,7 +60,7 @@ public class MovieDto {
         return synopsis;
     }
 
-    public GenreDto getGenre() {
+    public GenreDTO getGenre() {
         return genre;
     }
 

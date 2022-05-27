@@ -1,8 +1,8 @@
 package com.devsuperior.movieflix.controllers;
 
-import com.devsuperior.movieflix.entities.dto.MovieByGenreDto;
-import com.devsuperior.movieflix.entities.dto.MovieDto;
-import com.devsuperior.movieflix.entities.dto.ReviewDto;
+import com.devsuperior.movieflix.dto.MovieByGenreDTO;
+import com.devsuperior.movieflix.dto.MovieDTO;
+import com.devsuperior.movieflix.dto.ReviewDTO;
 import com.devsuperior.movieflix.services.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -24,23 +24,23 @@ public class MovieController {
     private MovieService service;
 
     @GetMapping
-    public ResponseEntity<Page<MovieByGenreDto>> findAllByGenreId(
+    public ResponseEntity<Page<MovieByGenreDTO>> findAllByGenreId(
             @RequestParam(defaultValue = "0") Long genreId,
             Pageable pageable
     ) {
-        Page<MovieByGenreDto> page = service.findAllByGenreId(genreId, pageable);
+        Page<MovieByGenreDTO> page = service.findAllByGenreId(genreId, pageable);
         return ResponseEntity.ok().body(page);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<MovieDto> findById(@PathVariable Long id) {
-        MovieDto obj = service.findById(id);
+    public ResponseEntity<MovieDTO> findById(@PathVariable Long id) {
+        MovieDTO obj = service.findById(id);
         return ResponseEntity.ok().body(obj);
     }
 
     @GetMapping(value = "/{id}/reviews")
-    public ResponseEntity<List<ReviewDto>> findReviewsByMovieId(@PathVariable Long id) {
-        List<ReviewDto> list = service.findReviewsByMovieId(id);
+    public ResponseEntity<List<ReviewDTO>> findReviewsByMovieId(@PathVariable Long id) {
+        List<ReviewDTO> list = service.findReviewsByMovieId(id);
         return ResponseEntity.ok().body(list);
     }
 

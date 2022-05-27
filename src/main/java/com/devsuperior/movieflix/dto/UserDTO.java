@@ -1,11 +1,11 @@
-package com.devsuperior.movieflix.entities.dto;
+package com.devsuperior.movieflix.dto;
 
 import com.devsuperior.movieflix.entities.User;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
-public class UserDto {
+public class UserDTO {
 
     private Long id;
 
@@ -15,16 +15,16 @@ public class UserDto {
     @Email(message = "E-mail inválido.")
     private String email;
 
-    public UserDto() {
+    public UserDTO() {
     }
 
-    public UserDto(Long id, String name, String email) {
+    public UserDTO(Long id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;
     }
 
-    public UserDto(User entity) {
+    public UserDTO(User entity) {
         id = entity.getId();
         name = entity.getName();
         email = entity.getEmail();

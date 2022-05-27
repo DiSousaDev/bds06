@@ -1,13 +1,13 @@
-package com.devsuperior.movieflix.entities.dto;
+package com.devsuperior.movieflix.dto;
 
 import com.devsuperior.movieflix.services.validation.UserInsertValid;
 
 @UserInsertValid
-public class UserInsertDto extends UserDto {
+public class UserInsertDTO extends UserDTO {
 
     private String password;
 
-    public UserInsertDto() {
+    public UserInsertDTO() {
         super();
     }
 

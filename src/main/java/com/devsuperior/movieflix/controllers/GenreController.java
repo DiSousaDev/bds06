@@ -1,6 +1,6 @@
 package com.devsuperior.movieflix.controllers;
 
-import com.devsuperior.movieflix.entities.dto.GenreDto;
+import com.devsuperior.movieflix.dto.GenreDTO;
 import com.devsuperior.movieflix.services.GenreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +18,8 @@ public class GenreController {
     private GenreService service;
 
     @GetMapping
-    public ResponseEntity<List<GenreDto>> findAll() {
-        List<GenreDto> list = service.findAll();
+    public ResponseEntity<List<GenreDTO>> findAll() {
+        List<GenreDTO> list = service.findAll();
         return ResponseEntity.ok().body(list);
     }
 

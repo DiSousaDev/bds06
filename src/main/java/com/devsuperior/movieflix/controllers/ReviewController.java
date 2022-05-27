@@ -1,7 +1,7 @@
 package com.devsuperior.movieflix.controllers;
 
-import com.devsuperior.movieflix.entities.dto.ReviewDto;
-import com.devsuperior.movieflix.entities.dto.ReviewInsertDto;
+import com.devsuperior.movieflix.dto.ReviewDTO;
+import com.devsuperior.movieflix.dto.ReviewInsertDTO;
 import com.devsuperior.movieflix.services.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,8 +22,8 @@ public class ReviewController {
     private ReviewService service;
 
     @PostMapping
-    public ResponseEntity<ReviewDto> save(@Valid @RequestBody ReviewInsertDto review) {
-        ReviewDto obj = service.saveReview(review);
+    public ResponseEntity<ReviewDTO> save(@Valid @RequestBody ReviewInsertDTO review) {
+        ReviewDTO obj = service.saveReview(review);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(obj.getId()).toUri();
         return ResponseEntity.created(uri).body(obj);

@@ -2,7 +2,7 @@ package com.devsuperior.movieflix.services.validation;
 
 import com.devsuperior.movieflix.controllers.exceptions.CustomFieldError;
 import com.devsuperior.movieflix.entities.User;
-import com.devsuperior.movieflix.entities.dto.UserInsertDto;
+import com.devsuperior.movieflix.dto.UserInsertDTO;
 import com.devsuperior.movieflix.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class UserInsertValidator implements ConstraintValidator<UserInsertValid, UserInsertDto> {
+public class UserInsertValidator implements ConstraintValidator<UserInsertValid, UserInsertDTO> {
 
     @Autowired
     private UserRepository repository;
@@ -23,7 +23,7 @@ public class UserInsertValidator implements ConstraintValidator<UserInsertValid,
     }
 
     @Override
-    public boolean isValid(UserInsertDto dto, ConstraintValidatorContext context) {
+    public boolean isValid(UserInsertDTO dto, ConstraintValidatorContext context) {
 
         List<CustomFieldError> list = new ArrayList<>();
 

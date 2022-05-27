@@ -1,17 +1,17 @@
-package com.devsuperior.movieflix.entities.dto;
+package com.devsuperior.movieflix.dto;
 
 import javax.validation.constraints.NotBlank;
 
-public class ReviewInsertDto {
+public class ReviewInsertDTO {
 
     @NotBlank(message = "Campo requerido")
     private String text;
     private Long movieId;
 
-    public ReviewInsertDto() {
+    public ReviewInsertDTO() {
     }
 
-    public ReviewInsertDto(String text, Long movieId) {
+    public ReviewInsertDTO(String text, Long movieId) {
         this.text = text;
         this.movieId = movieId;
     }

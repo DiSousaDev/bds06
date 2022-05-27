@@ -1,21 +1,21 @@
-package com.devsuperior.movieflix.entities.dto;
+package com.devsuperior.movieflix.dto;
 
 import com.devsuperior.movieflix.entities.Role;
 
-public class RoleDto {
+public class RoleDTO {
 
     private Long id;
     private String authority;
 
-    public RoleDto() {
+    public RoleDTO() {
     }
 
-    public RoleDto(Long id, String authority) {
+    public RoleDTO(Long id, String authority) {
         this.id = id;
         this.authority = authority;
     }
 
-    public RoleDto(Role entity) {
+    public RoleDTO(Role entity) {
         id = entity.getId();
         authority = entity.getAuthority();
     }

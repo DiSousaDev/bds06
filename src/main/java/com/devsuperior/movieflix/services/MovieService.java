@@ -1,9 +1,9 @@
 package com.devsuperior.movieflix.services;
 
 import com.devsuperior.movieflix.entities.Movie;
-import com.devsuperior.movieflix.entities.dto.MovieByGenreDto;
-import com.devsuperior.movieflix.entities.dto.MovieDto;
-import com.devsuperior.movieflix.entities.dto.ReviewDto;
+import com.devsuperior.movieflix.dto.MovieByGenreDTO;
+import com.devsuperior.movieflix.dto.MovieDTO;
+import com.devsuperior.movieflix.dto.ReviewDTO;
 import com.devsuperior.movieflix.repositories.MovieRepository;
 import com.devsuperior.movieflix.repositories.ReviewRepository;
 import com.devsuperior.movieflix.services.exceptions.DataNotFoundException;
@@ -29,18 +29,18 @@ public class MovieService {
     private UserService userService;
 
     @Transactional(readOnly = true)
-    public MovieDto findById(Long id) {
-        return new MovieDto(findMovieById(id));
+    public MovieDTO findById(Long id) {
+        return new MovieDTO(findMovieById(id));
     }
 
     @Transactional(readOnly = true)
-    public List<ReviewDto> findReviewsByMovieId(Long id) {
-        return reviewRepository.findAllByMovie(new Movie(id)).stream().map(ReviewDto::new).collect(Collectors.toList());
+    public List<ReviewDTO> findReviewsByMovieId(Long id) {
+        return reviewRepository.findAllByMovie(new Movie(id)).stream().map(ReviewDTO::new).collect(Collectors.toList());
     }
 
     @Transactional(readOnly = true)
-    public Page<MovieByGenreDto> findAllByGenreId(Long genreId, Pageable pageable) {
-        return repository.findAllByGenre((genreId == 0) ? null : genreId, pageable).map(MovieByGenreDto::new);
+    public Page<MovieByGenreDTO> findAllByGenreId(Long genreId, Pageable pageable) {
+        return repository.findAllByGenre((genreId == 0) ? null : genreId, pageable).map(MovieByGenreDTO::new);
     }
 
     private Movie findMovieById(Long id) {

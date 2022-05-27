@@ -1,7 +1,7 @@
 package com.devsuperior.movieflix.services;
 
 import com.devsuperior.movieflix.entities.User;
-import com.devsuperior.movieflix.entities.dto.UserDto;
+import com.devsuperior.movieflix.dto.UserDTO;
 import com.devsuperior.movieflix.repositories.RoleRepository;
 import com.devsuperior.movieflix.repositories.UserRepository;
 import com.devsuperior.movieflix.services.exceptions.DataNotFoundException;
@@ -42,8 +42,8 @@ public class UserService implements UserDetailsService {
     }
 
     @Transactional(readOnly = true)
-    public UserDto getUserDtoLogged() {
-        return new UserDto(getUserLogged());
+    public UserDTO getUserDtoLogged() {
+        return new UserDTO(getUserLogged());
     }
 
     public User getUserLogged() {
