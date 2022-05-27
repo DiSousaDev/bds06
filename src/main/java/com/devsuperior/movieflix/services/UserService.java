@@ -42,11 +42,11 @@ public class UserService implements UserDetailsService {
     }
 
     @Transactional(readOnly = true)
-    public UserDto findLogged() {
+    public UserDto getUserDtoLogged() {
         return new UserDto(getUserLogged());
     }
 
-    private User getUserLogged() {
+    public User getUserLogged() {
         try {
             String username = SecurityContextHolder.getContext().getAuthentication().getName();
             return repository.findByEmail(username).orElseThrow(() -> new DataNotFoundException("Usuário não encontrado email: " + username + " entity: " + UserService.class.getName()));

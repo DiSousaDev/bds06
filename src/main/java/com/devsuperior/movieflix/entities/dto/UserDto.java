@@ -4,8 +4,6 @@ import com.devsuperior.movieflix.entities.User;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import java.util.HashSet;
-import java.util.Set;
 
 public class UserDto {
 
@@ -16,8 +14,6 @@ public class UserDto {
 
     @Email(message = "E-mail inválido.")
     private String email;
-
-    private final Set<RoleDto> roles = new HashSet<>();
 
     public UserDto() {
     }
@@ -32,7 +28,6 @@ public class UserDto {
         id = entity.getId();
         name = entity.getName();
         email = entity.getEmail();
-        entity.getRoles().forEach(role -> this.roles.add(new RoleDto(role.getId(), role.getAuthority())));
     }
 
     public Long getId() {
@@ -47,7 +42,4 @@ public class UserDto {
         return email;
     }
 
-    public Set<RoleDto> getRoles() {
-        return roles;
-    }
 }

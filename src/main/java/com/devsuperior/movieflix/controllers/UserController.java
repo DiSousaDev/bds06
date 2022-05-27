@@ -13,12 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     @Autowired
-    UserService userService;
-
+    private UserService userService;
 
     @GetMapping(value = "/profile")
     public ResponseEntity<UserDto> findUserLogged() {
-        UserDto obj = userService.findLogged();
+        UserDto obj = userService.getUserDtoLogged();
         return ResponseEntity.ok().body(obj);
     }
 
