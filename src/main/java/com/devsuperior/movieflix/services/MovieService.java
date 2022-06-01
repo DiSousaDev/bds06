@@ -25,9 +25,6 @@ public class MovieService {
     @Autowired
     private ReviewRepository reviewRepository;
 
-    @Autowired
-    private UserService userService;
-
     @Transactional(readOnly = true)
     public MovieDTO findById(Long id) {
         return new MovieDTO(findMovieById(id));
